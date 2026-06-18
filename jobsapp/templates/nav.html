@@ -1,0 +1,42 @@
+<header>
+	<nav>
+		<div class="logo">
+			<a href="{% url 'home' %}">NaijaJob</a>
+		</div>
+		<div class="nav">
+			<ul>
+				<li>
+					<a href="{% url 'home' %}">Home</a>
+				</li>
+				<li>
+					<a href="{% url 'find_job' %}">Find Jobs</a>
+				</li>
+				<li>
+					<a href="{% url 'about' %}">About</a>
+				</li>
+				<li>
+					<a href="{% url 'post_job' %}">Post a Job</a>
+				</li>
+			</ul>
+		</div>
+		<div class="auth">
+			<ul>
+				{% if user.is_authenticated %}
+				<li>
+					<a href="{% url 'logout' %}">Logout</a>
+				</li>
+				{% else %}
+				<li>
+					<a href="{% url 'signup' %}">Signup</a>
+				</li>
+				<li>
+					<a href="{% url 'login' %}">Login</a>
+				</li>
+			</ul>
+			<button class="toggle-btn" id="toggleBtn">
+ 				<i class="fa-solid fa-moon" id="themeIcon"></i>
+			</button>
+			{% endif %}
+		</div>
+	</nav>
+</header>

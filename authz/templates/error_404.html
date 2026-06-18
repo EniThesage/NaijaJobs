@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+
+{% block title %}Page Not Found - NaijaJobs {% endblock title %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block main %}
+    <section class="404-error-page">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <div class="error-icon">
+                <i class="fa-solid fa-briefcase-blank"></i>
+            </div>
+            <p class="error-message">
+                The page you're looking for doesn't exist or has been moved. 
+                It's like applying for a job that's already been filled — happens to the best of us!
+            </p>
+            <div class="error-actions">
+                <button class="error btn">
+                    <a href="/" class="error-btn-primary">
+                        <i class="fa-solid fa-house"></i> Back to Homepage
+                    </a>
+                </button>
+                <button class="error-btn">
+                    <a href="{% url 'find_job' %}" class="error-btn-secondary">
+                        <i class="fa-solid fa-magnifying-glass"></i> Browse Jobs
+                    </a>
+                </button>
+            </div>
+            <p class="error-footer-text">
+                Still lost? <a href="{% url 'about' %}">Contact us</a> and we'll point you in the right direction.
+            </p>
+        </div>
+    </section>
+{% endblock main %}

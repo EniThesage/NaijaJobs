@@ -1,0 +1,135 @@
+{% extends 'base.html' %} 
+
+{% block title %}Find Jobs - NaijaJobs {% endblock title %}
+
+{% block main %} 
+<section class="job-listing-page">
+    <section class="find-jobs-hero">
+        <h1 class="find-jobs-hero-header">
+          Browse Jobs  
+        </h1>
+        <p class="find-job-hero-paragraph">
+            Discover exciting opportunities with Nigeria's leading companies
+        </p>
+        <span class="find-job-hero-job-available">
+            {{ job_count }} job{{ job_count|pluralize }} available
+        </span>
+    </section>
+
+    <section class="find-job-search-nav">
+        <form action="" method="GET">
+
+            <div class="find-job-search-bar">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" name="search" value="{{ search }}" class="find-job-search-bar" placeholder="Search Job title, company, or keyword...">
+            </div>
+
+            <div class="find-job-nav-pills">
+                <div class="find-job-category-pills">
+                    <button type="submit" name="category" value="All" class="find-job-category-pill {% if category == 'All' or not category %}active{% endif %}">
+                        All
+                    </button>
+                    <button type="submit" name="category" value="Tech" class="find-job-category-pill {% if category == 'Tech' %}active{% endif %}">
+                        Tech
+                    </button>
+                    <button type="submit" name="category" value="Design" class="find-job-category-pill {% if category == 'Design' %}active{% endif %}">
+                        Deign
+                    </button>
+                    <button type="submit" name="category" value="Marketing" class="find-job-category-pill {% if category == 'Marketing' %}active{% endif %}">
+                        Marketing
+                    </button>
+                    <button type="submit" name="category" value="Finance" class="find-job-category-pill {% if category == 'Finance' %}active{% endif %}">
+                        Finance
+                    </button>
+                    <button type="submit" name="category" value="Legal" class="find-job-category-pill {% if category == 'Legal' %}active{% endif %}">
+                        Legal
+                    </button>
+                </div>
+    
+                <div class="find-job-type-pills">
+                    <button type="submit" name="job_type" value="All" class="find-job-type-pill {% if job_type == 'All' or not job_type %}active{% endif %}">
+                        All
+                    </button>
+                <button type="submit" name="job_type" value="Full-time" class="find-job-type-pill {% if job_type == 'Full-time' %}active{% endif %}">
+                    Full-time
+                </button>
+                <button type="submit" name="job_type" value="Remote" class="find-job-type-pill {% if job_type == 'Remote' %}active{% endif %}">
+                    Remote
+                </button>
+                <button type="submit" name="job_type" value="Contract" class="find-job-type-pill {% if job_type == 'Contract' %}active{% endif %}">
+                    Contract
+                </button>
+                <button type="submit" name="job_type" value="Internship" class="find-job-type-pill {% if job_type == 'Internship' %}active{% endif %}">
+                    Internship
+                </button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section class="find-jobs-cards">
+        {% for job in all_jobs %}
+        <div class="find-jobs-card">
+            <div class="find-job-card-top">
+                <div class="find-job-card-left">
+                    <p class="find-job-card-left-left">
+                        {{ job.company_name|first }}
+                    </p>
+                    <div class="find-job-card-left-mid">
+                        <p class="find-job-card-job-title">
+                          {{ job.job_title }}
+                        </p>
+                        <p class="find-job-card-company-name">
+                            {{ job.company_name }}
+                        </p>
+                        <p class="find-job-card-loc">
+                           <i class="fa-solid fa-location-dot"></i> {{ job.location }}
+                        </p>
+                    </div>
+                </div>
+                <div class="find-job-card-right">
+                    {{ job.job_type }}
+                </div>
+            </div>
+            <p class="find-job-card-salary">
+                ₦{{ job.minimum_salary|floatformat:0 }} - ₦{{ job.maximum_salary|floatformat:0 }} / year
+            </p>
+            <div class="find-job-card-buttom">
+                <p class="find-card-job-cat">
+                    {{ job.category }}
+                </p>
+
+                {% if job.user == user %}
+                <div class="user-btn">
+                    <button class="find-job-card-view">
+                        <a href="{% url 'job_detail' job.id %}">View Job <i class="fa-solid fa-arrow-right"></i></a>
+                    </button>
+                    <button class="find-job-card-edit">
+                        <a href="{% url 'edit_job' job.id %}">Edit Job <i class="fa-solid fa-arrow-right"></i></a>
+                    </button>
+                    <button class="find-job-card-delete">
+                        <a href="{% url 'delete_job' job.id %}">Delete Job <i class="fa-solid fa-arrow-right"></i></a>
+                    </button>
+                </div>
+                {% else %}
+                <button class="find-job-card-view">
+                    <a href="{% url 'job_detail' job.id %}">View Job <i class="fa-solid fa-arrow-right"></i></a>
+                </button>
+                {% endif %}
+            </div>
+            <p class="jobdetail listed-by">
+                  Listed by: {{ job.user.username }}
+            </p>
+        </div>
+        {% empty %}
+            <div class="no-jobs">
+                <i class="fa-solid fa-briefcase"></i>
+                <p>
+                    No jobs found. <a href="{% url 'find_job' %}">Clear filters</a>
+                </p>
+            </div>
+        {% endfor %}
+    </section>
+        
+</section>
+{% endblock main %}

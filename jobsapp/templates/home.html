@@ -1,0 +1,202 @@
+{% extends 'base.html' %} 
+
+{% block title %}Home - NaijaJobs {% endblock title %}
+
+{% block main %} 
+<section class="home-hero-section">
+    <div class="home-hero-left">
+        <h1>
+            Find Your Dream Job in <span>Nigeria</span>  
+        </h1>
+        <p>
+            Connect with Nigeria's top companies and take the next step in your career journey.
+        </p>
+
+        <form  action="{% url 'find_job' %}" method="GET" class="home-search-bar">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" class="search-bar" name="search" placeholder="Search Job title, company, or keyword...">
+            <button type="submit">Search Jobs</button>
+        </form>
+
+        <div class="hero-statistics">
+            <div class="stat">
+                <span class="stat-fig">
+                    {{ job_count }}
+                </span>
+                <p class="stat-para">
+                   Jobs Listed 
+                </p>
+            </div>
+            <div class="stat">
+                <span class="stat-fig">
+                    {{ company_count }}
+                </span>
+                <p class="stat-para">
+                   Companies
+                </p>
+            </div>
+            <div class="stat">
+                <span class="stat-fig">
+                    10k+
+                </span>
+                <p class="stat-para">
+                   Job Seekers
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-hero-right">
+        <div class="home-hero-cards">
+            <div class="home-hero-card">
+                <div class="home-hero-card-top">
+                    <span class="home-hero-card-top-left">
+                        P
+                    </span>
+                    <div class="home-hero-card-top-right">
+                        <p class="home-hero-card-job-title">
+                          Senior Frontend Developer  
+                        </p>
+                        <p class="home-hero-card-company-name">
+                            Paystack
+                        </p>
+                    </div>
+                </div>
+                <div class="hom-hero-card-buttom">
+                    <span class="home-hero-card-job-loc">
+                        Lagos
+                    </span>
+                    <span class="home-hero-card-job-type">
+                        Full-time
+                    </span>
+                </div>
+            </div>
+
+            <div class="home-hero-card">
+                <div class="home-hero-card-top">
+                    <span class="home-hero-card-top-left">
+                        F
+                    </span>
+                    <div class="home-hero-card-top-right">
+                        <p class="home-hero-card-job-title">
+                          Product Designer  
+                        </p>
+                        <p class="home-hero-card-company-name">
+                            Flutterwave
+                        </p>
+                    </div>
+                </div>
+                <div class="hom-hero-card-buttom">
+                    <span class="home-hero-card-job-loc">
+                        Remote
+                    </span>
+                    <span class="home-hero-card-job-type">
+                        Remote
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-browse-cat">
+    <h2 class="home-browse-cat-header">
+        Browse by Category
+    </h2>
+
+    <div class="home-browse-category-cards">
+        {% for category in category_counts %}
+        <div class="home-browse-category-card">
+           <a href="{% url 'find_job' %}?category={{ category.category }}" class="home-category-link">
+                {% if category.category == 'Tech' %}
+                <i class="fa-solid fa-laptop-code category-icon"></i>
+                {% elif category.category == 'Design' %}
+                <i class="fa-solid fa-pen-nib category-icon"></i>
+                {% elif category.category == 'Marketing' %}
+                <i class="fa-solid fa-bullhorn category-icon"></i>
+                {% elif category.category == 'Finance' %}
+                <i class="fa-solid fa-sack-dollar category-icon"></i>
+                {% elif category.category == 'Legal' %}
+                <i class="fa-solid fa-scale-balanced category-icon"></i>
+                {% else %}
+                <i class="fa-solid fa-briefcase category-icon"></i>
+                {% endif %}
+
+                <p class="home-category-name">
+                    {{ category.category }}
+                </p>
+                <span class="hom-category-count">
+                    {{ category.total }} Job{{ category.total|pluralize }}
+                </span>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="home-featured-jobs">
+    <div class="home-featured-jobs-flex">
+        <h2 class="home-featured-jobs-header">
+           Featured Jobs 
+        </h2>
+        <a href="{% url 'find_job' %}">View all jobs <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="home-featured-jobs-cards">
+        {% for job in featured_jobs %}
+        <div class="home-featured-jobs-card">
+            <div class="home featured-card-top">
+                <div class="home-featured-card-left">
+                    <p class="home featured-card-left-left">
+                        {{ job.company_name|first }}
+                    </p>
+                    <div class="home featured-card-left-mid">
+                        <p class="home-featured-card-job-title">
+                          {{ job.job_title }}  
+                        </p>
+                        <span class="home featured-card-company-name">
+                            {{ job.company_name }}
+                        </span>
+                        <span class="home featured-card-loc">
+                           <i class="fa-solid fa-location-dot"></i> {{ job.location }}
+                        </span>
+                    </div>
+                </div>
+                <div class="home featured-card-right">
+                    {{ job.job_type }}
+                </div>
+            </div>
+            <p class="home-featured-card-salary">
+                ₦{{ job.minimum_salary|floatformat:0 }} - ₦{{ job.maximum_salary|floatformat:0 }} / year
+            </p>
+            <div class="home-featured-card-buttom">
+                <p class="home-featured-card-job-cat">
+                     {{ job.category }}
+                </p>
+                <button class="home-fratured-card-view">
+                    <a href="{% url 'job_detail' job.id %}">View Job <i class="fa-solid fa-arrow-right"></i></a> 
+                </button>
+            </div>
+        </div>
+        {% empty %}
+        <p class="unavailable">
+            No jobs available.
+        </p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="home-hiring-enquiry">
+    <h3 class="home-hiring">
+        Are You Hiring?
+    </h3>
+    <p class="home-hiring-paragraph">
+        Reach thousands of talented Nigerian professionals looking for their next opportunity
+    </p>
+    <button class="home-post-btn">
+        <a href="{% url 'post_job' %}">Post a Job - It's Free</a> 
+    </button>
+</section>
+
+
+
+{% endblock main %}

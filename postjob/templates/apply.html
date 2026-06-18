@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+
+{% block title %}Apply - NaijaJobs {% endblock title %}
+
+{% block main %} 
+    <section class="apply-page">
+        <h1 class="apply-page-header">
+            Apply for {{ job.job_title }}
+        </h1>
+        <p class="apply-page-header-para">
+           {{ job.company_name }} · {{ job.location }} 
+        </p>
+
+        <form action="" method="POST" class="apply-page-form" enctype="multipart/form-data">
+            {% csrf_token %}
+
+        <div class="form-group">
+            <label for="full_name">Full Name: <span class="required">*</span></label>
+            <input type="text" id="full_name" name="full_name" placeholder="Your full name" required value="{{ request.user.get_full_name }}">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address: <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required value="{{ request.user.email }}">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number: <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 08012345678" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cv">Upload CV: <span class="required">*</span></label>
+            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+            <small>Accepted formats: PDF, DOC, DOCX. 5MB only</small>
+        </div>
+
+        <div class="form-group">
+            <label for="cover_letter">Cover Letter <span class="required">*</span></label>
+            <textarea id="cover_letter" name="cover_letter" rows="20" cols="70" placeholder="Tell the employer why you're the best fit for this role..."></textarea>
+            <small class="cober-letter">200-250 words</small>
+        </div>
+
+        <div class="apply-job-info">
+            <p><i class="fa-solid fa-briefcase"></i> 
+                {{ job.job_type }}
+            </p>
+            <p><i class="fa-solid fa-location-dot"></i> 
+                {{ job.location }}
+            </p>
+            <p> 
+                ₦{{ job.minimum_salary }} - ₦{{ job.maximum_salary }}
+            </p>
+        </div>
+
+        <button type="submit" class="btn-apply-submit">
+            Submit Application <i class="fa-solid fa-arrow-right"> 
+        </button>
+        </form>
+    </section>
+{% endblock main %} 

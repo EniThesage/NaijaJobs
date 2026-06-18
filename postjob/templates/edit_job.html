@@ -1,0 +1,88 @@
+{% extends 'base.html' %} 
+
+{% block title %}Edit Job - NaijaJobs {% endblock title %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block main %} 
+
+<section class="post-jobs-page">
+    <h1 class="post-job-page-header">
+        Edit existing job
+    </h1>
+    <p class="post-job-page-para">
+        Reach thousands of Nigerian professionals
+    </p>
+
+    <form action="" method="post" class="post-job-form">
+        {% csrf_token %}
+        <div class="postjob-form-group">
+            <label for="job_title">Job Title <span class="required">*</span></label>
+            <input type="text" id="job_title" name="job_title" value="{{ editjobview.job_title }}">
+        </div>
+
+        <div class="postjob-form-group">
+            <label for="company_name">Company Name <span class="required">*</span></label>
+            <input type="text" id="company_name" name="company_name" value="{{ editjobview.company_name }}">
+        </div>
+
+        <div class="postjob-form-group">
+            <label for="location">Location <span class="required">*</span></label>
+            <input type="text" id="location" name="location" value="{{ editjobview.location }}">
+        </div>
+
+        <div class="postjob-form-group">
+            <label for="job_type">Job Type <span class="required">*</span></label>
+            <select name="job_type" id="job_type">
+                <option value="">{{ editjobview.job_type }}</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Remote">Remote</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Contract">Contract</option>
+                <option value="Internship">Internship</option>
+            </select>
+        </div>
+
+        <div class="postjob-form-group">
+            <label for="category">Category <span class="required">*</span></label>
+            <select name="category" id="category">
+                <option value="">{{ editjobview.category}}</option>
+                <option value="Tech">Tech</option>
+                <option value="Design">Design</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Finance">Finance</option>
+                <option value="Legal">Legal</option>
+            </select>
+        </div>
+
+        <div class="min-max">
+            <div class="postjob-form-group">
+                <label for="minimum-salary">Minimum Salary<span class="required">*</span></label>
+                <input type="number" id="minimum-salary" name="minimum_salary" value="{{ editjobview.minimum_salary|floatformat:0 }}">
+            </div>
+
+            <div class="postjob-form-group">
+                <label for="maximum-salary">Maximum Salary<span class="required">*</span></label>
+                <input type="number" id="maximum-salary" name="maximum_salary" value="{{ editjobview.maximum_salary|floatformat:0 }}">
+            </div>
+        </div>
+
+        <div class="postjob-form-group">
+            <label for="description">Job Description <span class="required">*</span></label>
+            <textarea name="job_description" id="description" rows="20" cols="60">{{ editjobview.job_description|linebreaks }}</textarea>
+        </div>
+
+        <div class="postjob-form-group">
+            <label for="email">Application Email <span class="required">*</span></label>
+            <input type="email" id="email" name="application_email" value="{{ editjobview.application_email }}">
+        </div>
+
+        <button type="submit" class="post-job-btn">
+            Post Job <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+    </form>
+</section>
+{% endblock main %} 

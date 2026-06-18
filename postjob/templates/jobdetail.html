@@ -1,0 +1,168 @@
+{% extends 'base.html' %} 
+
+{% block title %}Job Details - NaijaJobs {% endblock title %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block main %} 
+<section class="jobdetail-page">
+    <div class="jobdetail-breadcrumb">
+        <a href="{% url 'home' %}">Home</a>
+        /
+        <a href="{% url 'find_job' %}">Find Jobs</a>
+        /
+        <span>{{ job.job_title }}</span>
+    </div>
+
+    {% if request.user == job.user %}
+    <div class="application-count-card">
+        <i class="fa-solid fa-users"></i>
+        <span>
+            {{ application_count }} Application{{ application_count|pluralize }}
+        </span>
+    </div>
+    {% endif %}
+    
+    <div class="jobdetail-header-card">
+        <div class="jobdetail-card-top">
+            <div class="jobdetail-card-left">
+                <p class="jobdetail-card-left-left">
+                    {{ job.company_name|first }}
+                </p>
+            </div>
+            <div class="jobdetail-card-left-mid">
+                <p class="jobdetail-card-job-title">
+                    {{ job.job_title }}
+                </p>
+                <div class="jobdetail-flex">
+                    <p class="jobdetail-card-company-name">
+                        {{ job.company_name }}
+                    </p>
+                    <p class="jobdetail-card-loc">
+                        <i class="fa-solid fa-location-dot"></i> {{ job.location }}
+                    </p>
+                </div>
+                <div class="jobdetail-card-right">
+                    <div class="jobdetail-type">
+                         {{ job.job_type }}
+                    </div>
+                   <div class="jobdetail-job-cat">
+                         {{ job.category }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="jobdetail-card-salary">
+            ₦{{ job.minimum_salary|floatformat:0 }} - ₦{{ job.maximum_salary|floatformat:0 }} / year
+        </p>
+        <div class="jobdetail-apply-btn">
+            {% if has_applied %}
+            <button disabled class="applied-btn">
+                Applied
+            </button>
+            {% else %}
+            <button class="jobdetail-card-btn" type="submit">
+                <a href="{% url 'apply_job' job.id %}" class="apply-btn">
+                    Apply Now
+                </a>
+            </button>
+            {% endif %}
+        </div>
+    </div>
+
+    <section class="job-description">
+        <div class="job-description-header">
+            <h2 class="jobdetail-about-role">
+                About the Role
+            </h2>
+            <p class="jobdetails-description">
+                {{ job.job_description|linebreaks }}
+            </p>
+        </div>
+        <div class="jobdetail-apply-btn">
+            {% if has_applied %}
+            <button disabled class="applied-btn">
+                Applied
+            </button>
+            {% else %}
+            <button class="jobdetail-card-btn" type="submit">
+                <a href="{% url 'apply_job' job.id %}" class="apply-btn">
+                    Apply Now
+                </a>
+            </button>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="jobdetail-company-infomation">
+        <h2 class="jobdetail-company-info">
+            About the Company
+        </h2>
+        <div class="jobdetail-company-name">
+            <strong>
+                Company 
+            </strong>
+            <p>
+               {{ job.company_name }} 
+            </p>
+        </div>
+
+        <div class="jobdetail-company-loc">
+            <strong>
+                Location
+            </strong>
+            <p>
+               {{ job.location }} 
+            </p>
+        </div>
+
+        <div class="jobdetail-category">
+            <strong>
+                Category 
+            </strong>
+            <p>
+               {{ job.category }} 
+            </p>
+        </div>
+    </section>
+
+    <section class="jobdetail-share-section">
+        <p class="jobdetail-share">
+            Share this job
+        </p>
+        <p class="jobdetail-share-icon">
+            <i class="fa-solid fa-share-nodes"></i> Share
+        </p>
+    </section>
+
+    <section class="jobdetail-similar-jobs">
+        <h2 class="job-detail-similar">
+            Similar Jobs
+        </h2>
+        {% for similar in similar_jobs %}
+        <a href="{% url 'job_detail' similar.id %}" class="similar-job-card">
+            <div class="job-detail-similar-com-initial">
+                {{ similar.company_name|first }}
+            </div>
+
+            <div class="job-detail-similar-com-det">
+                <h3>{{ similar.job_title }}</h3>
+                <p>{{ similar.company_name }}</p>
+                <small>{{ similar.location }} • {{ similar.job_type }}</small>
+            </div>
+
+        </a>
+        {% empty %}
+        <p>
+            No similar jobs available.
+        </p>
+        {% endfor %}
+
+        <a href="{% url 'find_job' %}">View all jobs <i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+
+</section>
+
+{% endblock main %} 
