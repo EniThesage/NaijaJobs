@@ -1,42 +1,50 @@
 <footer>
-    <div class="footer-logo">
-        <a href="{% url 'home' %}">NaijaJobs</a>
-        <p>
-           Find Your Dream Job in Nigeria 
-        </p>
-    </div>
-    <div class="quick-links">
-        <ul>
-            <li>
-                <a href="{% url 'home' %}">Home</a>
-            </li>
-            <li>
-                <a href="{% url 'find_job' %}">Find Jobs</a>
-            </li>
-            <li>
-                <a href="{% url 'about' %}">About Us</a>
-            </li>
-            <li>
-                <a href="{% url 'post_job' %}">Post a Job</a>
-            </li>
-        </ul>
-    </div>
-    <div class="footer-categories">
-        <ol>
-            <li>
-                Tech
-            </li>
-            <li>
-                Design
-            </li>
-            <li>
-               Marketing
-            </li>
-            <li>
-                Finance
-            </li>
-        </ol>
-    </div>
+    <section class="footer">
+        <div class="footer-logo">
+            <a href="{% url 'home' %}">NaijaJobs</a>
+            <p>
+               Find Your Dream Job in Nigeria 
+            </p>
+        </div>
+        <div class="quick-links">
+            <p class="quick-link-text">
+                Quick Links
+            </p>
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'find_job' %}">Find Jobs</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}">About Us</a>
+                </li>
+                <li>
+                    <a href="{% url 'post_job' %}">Post a Job</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-categories">
+            <p class="quick-link-text">
+                Categories
+            </p>
+            <ul>
+                <li>
+                    Tech
+                </li>
+                <li>
+                    Design
+                </li>
+                <li>
+                   Marketing
+                </li>
+                <li>
+                    Finance
+                </li>
+            </ul>
+        </div>
+    </section>
     <div class="footer-center">
         &copy;2026 NaijaJobs. Built by Nigerians, for Nigerian professionals.
     </div>

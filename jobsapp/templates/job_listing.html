@@ -3,6 +3,7 @@
 {% block title %}Find Jobs - NaijaJobs {% endblock title %}
 
 {% block main %} 
+
 <section class="job-listing-page">
     <section class="find-jobs-hero">
         <h1 class="find-jobs-hero-header">
@@ -15,6 +16,9 @@
             {{ job_count }} job{{ job_count|pluralize }} available
         </span>
     </section>
+    <div class="entive">
+
+    </div>
 
     <section class="find-job-search-nav">
         <form action="" method="GET">
@@ -26,7 +30,7 @@
 
             <div class="find-job-nav-pills">
                 <div class="find-job-category-pills">
-                    <button type="submit" name="category" value="All" class="find-job-category-pill {% if category == 'All' or not category %}active{% endif %}">
+                    <button type="submit" name="category" id="all" value="All" class="find-job-category-pill {% if category == 'All' or not category %}active{% endif %}">
                         All
                     </button>
                     <button type="submit" name="category" value="Tech" class="find-job-category-pill {% if category == 'Tech' %}active{% endif %}">
@@ -47,7 +51,7 @@
                 </div>
     
                 <div class="find-job-type-pills">
-                    <button type="submit" name="job_type" value="All" class="find-job-type-pill {% if job_type == 'All' or not job_type %}active{% endif %}">
+                    <button type="submit" name="job_type" id="all" value="All" class="find-job-type-pill {% if job_type == 'All' or not job_type %}active{% endif %}">
                         All
                     </button>
                 <button type="submit" name="job_type" value="Full-time" class="find-job-type-pill {% if job_type == 'Full-time' %}active{% endif %}">
@@ -88,7 +92,9 @@
                     </div>
                 </div>
                 <div class="find-job-card-right">
-                    {{ job.job_type }}
+                    <p>
+                        {{ job.job_type }}
+                    </p>
                 </div>
             </div>
             <p class="find-job-card-salary">
@@ -117,14 +123,14 @@
                 </button>
                 {% endif %}
             </div>
-            <p class="jobdetail listed-by">
+            <p class="jobdetail-listed-by">
                   Listed by: {{ job.user.username }}
             </p>
         </div>
         {% empty %}
             <div class="no-jobs">
-                <i class="fa-solid fa-briefcase"></i>
                 <p>
+                     <i class="fa-solid fa-briefcase"></i>
                     No jobs found. <a href="{% url 'find_job' %}">Clear filters</a>
                 </p>
             </div>

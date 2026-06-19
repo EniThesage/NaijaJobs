@@ -43,6 +43,9 @@
     </section>
 
     <section class="about-value">
+          <h2 class="about-value-header">
+                Our Values
+            </h2>
         <div class="about-value-cards">
             <div class="about-value-card">
                 <i class="fa-solid fa-star value-icon"></i>
@@ -70,51 +73,93 @@
                     Built for Growth
                 </h3>
                 <p class="about-value-card-para">
-                    We're not just about finding any job—we're about finding the right job that helps you grow in your career. Your success is our success.
+                    We're not just about finding any job, we're about finding the right job that helps you grow in your career. Your success is our success.
                 </p>
             </div>
         </div>
     </section>
 
-    <section class="about-statistics">
-        <div class="about-stat-cards">
-            <div class="about-stat-card">
-                <span class="about-stat-card-num">
-                    500+
-                </span>
-                <p class="about-stat-card-para">
-                    Active Job Listings
-                </p>
+    <div class="scroll">
+        <section class="about-statistics">
+            <div class="about-stat-cards">
+                <div class="about-stat-card">
+                    <span class="about-stat-card-num">
+                        500+
+                    </span>
+                    <p class="about-stat-card-para">
+                        Active Job Listings
+                    </p>
+                </div>
+    
+                <div class="about-stat-card">
+                    <span class="about-stat-card-num">
+                        200+
+                    </span>
+                    <p class="about-stat-card-para">
+                        Partner Companies
+                    </p>
+                </div>
+    
+                <div class="about-stat-card">
+                    <span class="about-stat-card-num">
+                        10k+
+                    </span>
+                    <p class="about-stat-card-para">
+                        Registered Users
+                    </p>
+                </div>
+    
+                <div class="about-stat-card">
+                    <span class="about-stat-card-num">
+                        98%
+                    </span>
+                    <p class="about-stat-card-para">
+                        Success Rate
+                    </p>
+                </div>
             </div>
-
-            <div class="about-stat-card">
-                <span class="about-stat-card-num">
-                    200+
-                </span>
-                <p class="about-stat-card-para">
-                    Partner Companies
-                </p>
+        </section>
+    
+        <section class="about-statistics">
+            <div class="about-stat-cards">
+                <div class="about-stat-card">
+                    <span class="about-stat-card-num">
+                        500+
+                    </span>
+                    <p class="about-stat-card-para">
+                        Active Job Listings
+                    </p>
+                </div>
+    
+                <div class="about-stat-card">
+                    <span class="about-stat-card-num">
+                        200+
+                    </span>
+                    <p class="about-stat-card-para">
+                        Partner Companies
+                    </p>
+                </div>
+    
+                <div class="about-stat-card">
+                    <span class="about-stat-card-num">
+                        10k+
+                    </span>
+                    <p class="about-stat-card-para">
+                        Registered Users
+                    </p>
+                </div>
+    
+                <div class="about-stat-card">
+                    <span class="about-stat-card-num">
+                        98%
+                    </span>
+                    <p class="about-stat-card-para">
+                        Success Rate
+                    </p>
+                </div>
             </div>
-
-            <div class="about-stat-card">
-                <span class="about-stat-card-num">
-                    10k+
-                </span>
-                <p class="about-stat-card-para">
-                    Registered Users
-                </p>
-            </div>
-
-            <div class="about-stat-card">
-                <span class="about-stat-card-num">
-                    98%
-                </span>
-                <p class="about-stat-card-para">
-                    Success Rate
-                </p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <section class="about-contact">
         <h4 class="about-contact-header">
@@ -126,16 +171,18 @@
         <form action="" method="post" class="about-contact-form">
             {% csrf_token %}
             
-            <div class="about-form-group">
-                <input type="text" placeholder="John Doe" name="fullname">
+            <div class="merge">
+                <div class="about-form-group">
+                    <input type="text" placeholder="John Doe" name="fullname">
+                </div>
+    
+                <div class="about-form-group">
+                    <input type="email" placeholder="example@email.com" name="email">
+                </div>
             </div>
 
             <div class="about-form-group">
-                <input type="email" placeholder="example@email.com" name="email">
-            </div>
-
-            <div class="about-form-group">
-                <textarea name="message" id="message" rows="20" cols="40">Write a Mesage</textarea>
+                <textarea name="message" id="message" rows="10" cols="50">Write a Message</textarea>
             </div>
 
             <button type="submit">
@@ -151,7 +198,7 @@
             Start your journey to finding your dream job today
         </p>
         <div class="about-cta-btns">
-            <button class="about-cta-browse-brn">
+            <button class="about-cta-browse-btn">
                <a href="{% url 'find_job' %}">Browse Jobs</a> 
             </button>
             <button class="about-ctn-post-btn">

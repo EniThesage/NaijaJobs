@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Server Error - NaijaJobs{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/authz.css' %}">
+{% endblock style %}
 
 {% block main %}
 <section class="error-page">

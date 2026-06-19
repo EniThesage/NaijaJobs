@@ -1,9 +1,11 @@
 {% extends 'base.html' %} 
 
+{% load static %}
+
 {% block title %}Edit Job - NaijaJobs {% endblock title %}
 
 {% block style %}
-
+<link rel="stylesheet" href="{% static 'css/postjob.css' %}">
 {% endblock style %}
 
 {% block main %} 
@@ -71,7 +73,7 @@
 
         <div class="postjob-form-group">
             <label for="description">Job Description <span class="required">*</span></label>
-            <textarea name="job_description" id="description" rows="20" cols="60">{{ editjobview.job_description|linebreaks }}</textarea>
+            <textarea name="job_description" id="description" rows="20" cols="60">{{ editjobview.job_description }}</textarea>
         </div>
 
         <div class="postjob-form-group">

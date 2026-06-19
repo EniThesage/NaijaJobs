@@ -1,0 +1,287 @@
+section.login-page,
+section.signup-page {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:  #1A5C38;
+    padding: 4rem 1.5rem;
+    position: relative;
+}
+
+div.login-page-header,
+section.signup-page-header {
+    background-color: #FFFFFF;
+    border-radius: 1.4rem;
+    padding: 3rem 2.8rem;
+    width: 460px;
+    max-width: 100%;
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+h2.login-page-header-text,
+h2.signup-page-header-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #1A1A1A;
+    text-align: center;
+}
+
+p.login-page-header-paragraph,
+p.signup-page-header-para {
+    color: #888888;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.6rem 0 2.2rem 0;
+}
+
+
+/* form styling goes here */
+div.form-group {
+    margin-bottom: 1.3rem;
+}
+
+div.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1A1A1A;
+    margin-bottom: 0.5rem;
+}
+
+div.input-icon-wrap {
+    position: relative;
+}
+
+div.input-icon-wrap i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888888;
+    font-size: 0.95rem;
+}
+
+div.input-icon-wrap input {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.6rem;
+    border: 1.5px solid #e2e2de;
+    border-radius: 0.7rem;
+    font-size: 0.98rem;
+    font-family: 'DM Sans', sans-serif;
+    color: #1A1A1A;
+    transition: border 250ms ease-in-out;
+}
+
+div.input-icon-wrap input:focus {
+    outline: none;
+    border-color: #1A5C38;
+}
+
+div.input-icon-wrap input:focus + i,
+div.input-icon-wrap i {
+    transition: color 250ms ease-in-out;
+}
+
+div.input-icon-wrap:has(input:focus) i {
+    color: #1A5C38;
+}
+
+
+/* button styling goes here */
+button.login-btn,
+button.signup-btn {
+    width: 100%;
+    background-color: #1A5C38;
+    color: #FAFAF8;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.7rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: all 300ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+button.login-btn:hover,
+button.signup-btn:hover {
+    background-color: #F5A623;
+    color: #1A1A1A;
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+p.switch-btn {
+    text-align: center;
+    color: #888888;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+}
+
+p.switch-btn a {
+    color: #1A5C38;
+    font-weight: 600;
+}
+
+p.switch-btn a:hover {
+    text-decoration: underline;
+}
+
+
+/* error pages styling goes here */
+section.error-page,
+section.\34 04-error-page {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0d1f15;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(245, 166, 35, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(26, 92, 56, 0.4) 0%, transparent 50%);
+    padding: 5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+div.error-container {
+    max-width: 560px;
+    position: relative;
+    z-index: 2;
+}
+
+div.error-code {
+    font-family: 'Playfair Display', serif;
+    font-size: 11rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #F5A623;
+    opacity: 0.18;
+    letter-spacing: -0.05em;
+}
+
+div.error-icon {
+    font-size: 4rem;
+    color: #F5A623;
+    margin-top: -5rem;
+    margin-bottom: 1.5rem;
+}
+
+h1.error-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: #FAFAF8;
+    margin-bottom: 1.2rem;
+}
+
+p.error-message {
+    color: #b8c4bc;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+div.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+button.error-btn, button.error.btn {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+a.error-btn-primary {
+    background-color: #F5A623;
+    color: #1A1A1A;
+    padding: 0.9rem 1.8rem;
+    border-radius: 0.7rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 300ms ease-in-out;
+}
+
+a.error-btn-primary:hover {
+    background-color: #FFFFFF;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+a.error-btn-secondary {
+    background: none;
+    color: #FAFAF8;
+    border: 1.5px solid #FAFAF8;
+    padding: 0.9rem 1.8rem;
+    border-radius: 0.7rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 300ms ease-in-out;
+}
+
+a.error-btn-secondary:hover {
+    background-color: #FAFAF8;
+    color: #1A1A1A;
+    cursor: pointer;
+}
+
+p.error-footer-text {
+    color: #888888;
+    font-size: 0.9rem;
+}
+
+p.error-footer-text a {
+    color: #F5A623;
+    font-weight: 600;
+}
+
+p.error-footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* ===================== DARK MODE ===================== */
+
+body.dark-theme div.login-page-header,
+body.dark-theme section.signup-page-header {
+    background-color: #1A1A1A;
+    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme h2.login-page-header-text,
+body.dark-theme h2.signup-page-header-text,
+body.dark-theme div.form-group label {
+    color: #EAEAEA;
+}
+
+body.dark-theme p.login-page-header-paragraph,
+body.dark-theme p.signup-page-header-para,
+body.dark-theme p.switch-btn {
+    color: #A3A3A3;
+}
+
+body.dark-theme div.input-icon-wrap input {
+    color: #EAEAEA;
+    background-color: #1E1E1E;
+    border: 1.5px solid #3a3a3a;
+}
+
+body.dark-theme p.switch-btn a {
+    color: #3ddc84;
+}

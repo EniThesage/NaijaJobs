@@ -1,18 +1,23 @@
 {% extends 'base.html' %} 
 
+{% load static %}
+
 {% block title %}Page Not Found - NaijaJobs {% endblock title %}
 
 {% block style %}
+<link rel="stylesheet" href="{% static 'css/authz.css' %}">
+{% endblock style %}
 
 {% endblock style %}
 
 {% block main %}
-    <section class="404-error-page">
+    <section class="error-page">
         <div class="error-container">
             <div class="error-code">404</div>
             <div class="error-icon">
                 <i class="fa-solid fa-briefcase-blank"></i>
             </div>
+            <h1 class="error-title">This Job Has Left the Building</h1>
             <p class="error-message">
                 The page you're looking for doesn't exist or has been moved. 
                 It's like applying for a job that's already been filled — happens to the best of us!

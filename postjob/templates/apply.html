@@ -1,6 +1,12 @@
 {% extends 'base.html' %} 
 
+{% load static %}
+
 {% block title %}Apply - NaijaJobs {% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/postjob.css' %}">
+{% endblock style %}
 
 {% block main %} 
     <section class="apply-page">
@@ -54,8 +60,9 @@
         </div>
 
         <button type="submit" class="btn-apply-submit">
-            Submit Application <i class="fa-solid fa-arrow-right"> 
+            Submit Application <i class="fa-solid fa-arrow-right"> </i>
         </button>
         </form>
     </section>
+    
 {% endblock main %} 

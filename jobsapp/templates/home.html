@@ -15,7 +15,7 @@
         <form  action="{% url 'find_job' %}" method="GET" class="home-search-bar">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
             <input type="text" class="search-bar" name="search" placeholder="Search Job title, company, or keyword...">
-            <button type="submit">Search Jobs</button>
+            <button type="submit">Search</button>
         </form>
 
         <div class="hero-statistics">
@@ -23,32 +23,32 @@
                 <span class="stat-fig">
                     {{ job_count }}
                 </span>
-                <p class="stat-para">
+                <span class="stat-para">
                    Jobs Listed 
-                </p>
+                </span>
             </div>
             <div class="stat">
                 <span class="stat-fig">
                     {{ company_count }}
                 </span>
-                <p class="stat-para">
+                <span class="stat-para">
                    Companies
-                </p>
+                </span>
             </div>
             <div class="stat">
                 <span class="stat-fig">
                     10k+
                 </span>
-                <p class="stat-para">
+                <span class="stat-para">
                    Job Seekers
-                </p>
+                </span>
             </div>
         </div>
     </div>
 
     <div class="home-hero-right">
         <div class="home-hero-cards">
-            <div class="home-hero-card">
+            <div class="home-hero-card" id="big">
                 <div class="home-hero-card-top">
                     <span class="home-hero-card-top-left">
                         P
@@ -62,7 +62,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="hom-hero-card-buttom">
+                <div class="home-hero-card-buttom">
                     <span class="home-hero-card-job-loc">
                         Lagos
                     </span>
@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="home-hero-card">
+            <div class="home-hero-card" id="small">
                 <div class="home-hero-card-top">
                     <span class="home-hero-card-top-left">
                         F
@@ -86,7 +86,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="hom-hero-card-buttom">
+                <div class="home-hero-card-buttom">
                     <span class="home-hero-card-job-loc">
                         Remote
                     </span>
@@ -125,10 +125,10 @@
                 <p class="home-category-name">
                     {{ category.category }}
                 </p>
-                <span class="hom-category-count">
-                    {{ category.total }} Job{{ category.total|pluralize }}
-                </span>
             </a>
+            <span class="home-category-count">
+                {{ category.total }} Job{{ category.total|pluralize }}
+            </span>
         </div>
         {% endfor %}
     </div>
@@ -144,24 +144,24 @@
     <div class="home-featured-jobs-cards">
         {% for job in featured_jobs %}
         <div class="home-featured-jobs-card">
-            <div class="home featured-card-top">
+            <div class="home-featured-card-top">
                 <div class="home-featured-card-left">
-                    <p class="home featured-card-left-left">
+                    <p class="home-featured-card-left-left">
                         {{ job.company_name|first }}
                     </p>
-                    <div class="home featured-card-left-mid">
+                    <div class="home-featured-card-left-mid">
                         <p class="home-featured-card-job-title">
                           {{ job.job_title }}  
                         </p>
-                        <span class="home featured-card-company-name">
+                        <p class="home-featured-card-company-name">
                             {{ job.company_name }}
-                        </span>
-                        <span class="home featured-card-loc">
+                        </p>
+                        <p class="home-featured-card-loc">
                            <i class="fa-solid fa-location-dot"></i> {{ job.location }}
-                        </span>
+                        </p>
                     </div>
                 </div>
-                <div class="home featured-card-right">
+                <div class="home-featured-card-right">
                     {{ job.job_type }}
                 </div>
             </div>

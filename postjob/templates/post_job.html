@@ -1,9 +1,11 @@
 {% extends 'base.html' %} 
 
+{% load static %}
+
 {% block title %}Post a Jobs - NaijaJobs {% endblock title %}
 
 {% block style %}
-
+<link rel="stylesheet" href="{% static 'css/postjob.css' %}">
 {% endblock style %}
 
 {% block main %} 
@@ -58,12 +60,12 @@
         </div>
 
         <div class="min-max">
-            <div class="postjob-form-group">
+            <div class="postjob-form-group min-max">
                 <label for="minimum-salary">Minimum Salary<span class="required">*</span></label>
                 <input type="number" id="minimum-salary" name="minimum_salary" placeholder="e.g. 5000000">
             </div>
 
-            <div class="postjob-form-group">
+            <div class="postjob-form-group min-max">
                 <label for="maximum-salary">Maximum Salary<span class="required">*</span></label>
                 <input type="number" id="maximum-salary" name="maximum_salary" placeholder="e.g. 8000000">
             </div>
@@ -71,8 +73,11 @@
 
         <div class="postjob-form-group">
             <label for="description">Job Description <span class="required">*</span></label>
-            <textarea name="job_description" id="description" rows="20" cols="60"></textarea>
+            <textarea name="job_description" id="description" rows="20" cols="60" placeholder="Describe the role, responsibilities, requirements and benefits..."></textarea>
         </div>
+        <p class="character-count">
+            0 character (minimum 50)
+        </p>
 
         <div class="postjob-form-group">
             <label for="email">Application Email <span class="required">*</span></label>
