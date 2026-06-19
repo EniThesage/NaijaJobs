@@ -1320,7 +1320,7 @@ div.no-jobs p {
     }
 }
 
-/* ===================== DARK MODE ===================== */
+/* DARK MODE  */
 
 body.dark-theme {
     background-color: #121212;
@@ -1331,7 +1331,6 @@ body.dark-theme div.msg p {
     background-color: #1A5C38;
 }
 
-/* header / nav */
 body.dark-theme header {
     background-color: #121212;
     border-top: 1px solid #2a2a2a;
@@ -1367,7 +1366,6 @@ body.dark-theme div.nav-menu {
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* generic form fields */
 body.dark-theme input,
 body.dark-theme textarea,
 body.dark-theme select {
@@ -1381,7 +1379,6 @@ body.dark-theme textarea::placeholder {
     color: #777777;
 }
 
-/* footer */
 body.dark-theme footer section.footer {
     background-color: #161616;
     border-top: 1px solid #333333;
@@ -1407,7 +1404,6 @@ body.dark-theme div.quick-links ul a:hover {
     color: #FFFFFF;
 }
 
-/* home */
 body.dark-theme section.home-hero-section {
     background-color: #121212;
 }
@@ -1464,7 +1460,6 @@ body.dark-theme p.home-featured-card-job-cat {
     color: #3ddc84;
 }
 
-/* about */
 body.dark-theme div.about-mission-card {
     background-color: #1A1A1A;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
@@ -1502,7 +1497,6 @@ body.dark-theme form.about-contact-form button:hover {
     color: #121212;
 }
 
-/* find jobs */
 body.dark-theme p.find-job-hero-paragraph,
 body.dark-theme span.find-job-hero-job-available {
     color: #A3A3A3;
