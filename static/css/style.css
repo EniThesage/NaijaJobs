@@ -1134,6 +1134,7 @@ div.no-jobs p {
         width: 90%;
     }
 
+
     header nav {
         width: 90%;
     }
@@ -1150,7 +1151,8 @@ div.no-jobs p {
         display: none;
     }
 
-    div.home-browse-category-cards {
+    section.home-browse-cat div.home-browse-category-cards {
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -1191,6 +1193,11 @@ div.no-jobs p {
 }
 
 @media screen and (max-width: 700px) {
+
+    footer section.footer, section.about-mission {
+        display: flex;
+        flex-direction: column;
+    }
 
     header nav {
         width: 95%;
@@ -1255,7 +1262,8 @@ div.no-jobs p {
         width: 100%;
     }
 
-    div.home-browse-category-cards {
+    section.home-browse-cat div.home-browse-category-cards {
+        display: grid;
         grid-template-columns: 1fr;
     }
 
