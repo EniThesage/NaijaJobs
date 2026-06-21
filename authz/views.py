@@ -6,8 +6,6 @@ from django.views import View
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 
-logger = logging.getLogger(__name__)
-
 
 # Create your views here.
 class SignUpView(View):
@@ -83,7 +81,6 @@ def logoutview(request):
         
 
 def error_404(request, exception):
-    logger.warning('404 at %s: %s', request.path, exception)
     return render(request, 'error_404.html', status=404)
     
 

@@ -166,6 +166,8 @@ footer section.footer {
     border-bottom: 1px solid #dfdcdc;
     padding: 3.5rem 3rem;
     background-color: #FAFAF8;
+    width: 1220px;
+    margin: 0 auto;
 }
 
 div.footer-logo a {
@@ -1130,7 +1132,8 @@ div.no-jobs p {
     section.about-mission,
     section.about-value,
     section.job-listing-page,
-    section.jobdetail-page {
+    section.jobdetail-page,
+    footer section.footer {
         width: 90%;
     }
 
@@ -1202,6 +1205,16 @@ div.no-jobs p {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    div.quick-links ul, div.footer-categories ul {
+        justify-items: center;
+    }
+
+    div.about-mission-left, div.about-mission-card {
+        width: 100%;
     }
 
     header nav {
