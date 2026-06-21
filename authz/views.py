@@ -1,8 +1,12 @@
+import logging
+
 from django.shortcuts import render, redirect, resolve_url
 from django.contrib import messages
 from django.views import View
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+
+logger = logging.getLogger(__name__)
 
 
 # Create your views here.
@@ -79,8 +83,9 @@ def logoutview(request):
         
 
 def error_404(request, exception):
-    return render(request, 'error_404.html')
+    logger.warning('404 at %s: %s', request.path, exception)
+    return render(request, 'error_404.html', status=404)
     
 
 def error_500(request):
-    return render(request, 'error_500.html')
+    return render(request, 'error_500.html', status=500)
